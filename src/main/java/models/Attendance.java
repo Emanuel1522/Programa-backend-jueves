@@ -5,25 +5,25 @@ import helper.State;
 import java.util.Date;
 
 public class Attendance {
-    private Integer idAttendance;
+    private Integer id;
     private Date date;
     private State state;
 
     public Attendance() {
     }
 
-    public Attendance(Integer idAttendance, Date date, State state) {
-        this.idAttendance = idAttendance;
+    public Attendance(Integer id, Date date, State state) {
+        this.id = id;
         this.date = date;
         this.state = state;
     }
 
-    public Integer getIdAttendance() {
-        return idAttendance;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdAttendance(Integer idAttendance) {
-        this.idAttendance = idAttendance;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getDate() {

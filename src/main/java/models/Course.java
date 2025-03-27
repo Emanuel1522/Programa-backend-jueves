@@ -1,24 +1,40 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "courses")
 public class Course {
 
-    private Integer idCourse;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_course")
+    private Integer id;
+
+    @Column(name = "name", length = 100, unique = false, nullable = false)
     private String name;
+
+    //Creating relationship (many to 1)
+    @ManyToOne
+    @JoinColumn(name = "fk_teacher", referencedColumnName = "id")
+    @JsonBackReference
+    private Teacher teacher;
 
     public Course() {
     }
 
     public Course(Integer idCourse, String name) {
-        this.idCourse = idCourse;
+        this.id = idCourse;
         this.name = name;
     }
 
-    public Integer getIdCourse() {
-        return idCourse;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdCourse(Integer idCourse) {
-        this.idCourse = idCourse;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -3,7 +3,7 @@ package models;
 import helper.UserType;
 
 public class User {
-    private Integer idUser;
+    private Integer id;
     private String name;
     private String email;
     private String password;
@@ -13,8 +13,8 @@ public class User {
     public User() {
     }
 
-    public User(Integer idUser, String name, String email, String password, String phone, UserType userType) {
-        this.idUser = idUser;
+    public User(Integer id, String name, String email, String password, String phone, UserType userType) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -22,12 +22,12 @@ public class User {
         this.userType = userType;
     }
 
-    public Integer getIdUser() {
-        return idUser;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

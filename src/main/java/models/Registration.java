@@ -4,23 +4,23 @@ import java.sql.Timestamp;
 
 public class Registration {
 
-    private Integer idRegistration;
+    private Integer id;
     private Timestamp registrationDate;
 
     public Registration() {
     }
 
-    public Registration(Integer idRegistration, Timestamp registrationDate) {
-        this.idRegistration = idRegistration;
+    public Registration(Integer id, Timestamp registrationDate) {
+        this.id = id;
         this.registrationDate = registrationDate;
     }
 
-    public Integer getIdRegistration() {
-        return idRegistration;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdRegistration(Integer idRegistration) {
-        this.idRegistration = idRegistration;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Timestamp getRegistrationDate() {

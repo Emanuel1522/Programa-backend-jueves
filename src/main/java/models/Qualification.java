@@ -3,25 +3,25 @@ package models;
 import java.util.Date;
 
 public class Qualification {
-    private Integer idQualification;
+    private Integer id;
     private Float score;
     private Date testDate;
 
     public Qualification() {
     }
 
-    public Qualification(Integer idQualification, Float score, Date testDate) {
-        this.idQualification = idQualification;
+    public Qualification(Integer id, Float score, Date testDate) {
+        this.id = id;
         this.score = score;
         this.testDate = testDate;
     }
 
-    public Integer getIdQualification() {
-        return idQualification;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdQualification(Integer idQualification) {
-        this.idQualification = idQualification;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Float getScore() {

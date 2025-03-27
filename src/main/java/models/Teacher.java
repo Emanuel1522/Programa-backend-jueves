@@ -1,24 +1,40 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity
+@Table(name = "teacher")
 public class Teacher {
 
-    private Integer idTeacher;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_teacher")
+    private Integer id;
     private String specialty;
+
+    //Creating relationship (1 to many)
+    @OneToMany(mappedBy = "teacher")
+    @JsonManagedReference
+    private List<Course> courses;
+
 
     public Teacher() {
     }
 
-    public Teacher(Integer idTeacher, String specialty) {
-        this.idTeacher = idTeacher;
+    public Teacher(Integer id, String specialty) {
+        this.id = id;
         this.specialty = specialty;
     }
 
-    public Integer getIdTeacher() {
-        return idTeacher;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdTeacher(Integer idTeacher) {
-        this.idTeacher = idTeacher;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getSpecialty() {

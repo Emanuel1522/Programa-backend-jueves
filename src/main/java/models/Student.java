@@ -2,7 +2,7 @@ package models;
 
 import java.util.Date;
 public class Student {
-    private Integer idStudent;
+    private Integer id;
     private Integer grade;
     private Date bornDate;
     private String adress;
@@ -10,19 +10,19 @@ public class Student {
     public Student() {
     }
 
-    public Student(Integer idStudent, Integer grade, Date bornDate, String adress) {
-        this.idStudent = idStudent;
+    public Student(Integer id, Integer grade, Date bornDate, String adress) {
+        this.id = id;
         this.grade = grade;
         this.bornDate = bornDate;
         this.adress = adress;
     }
 
-    public Integer getIdStudent() {
-        return idStudent;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdStudent(Integer idStudent) {
-        this.idStudent = idStudent;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getGrade() {

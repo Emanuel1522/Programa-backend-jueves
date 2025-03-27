@@ -1,23 +1,23 @@
 package models;
 
 public class Subject {
-    private Integer idSubject;
+    private Integer id;
     private String name;
 
     public Subject() {
     }
 
-    public Subject(Integer idSubject, String name) {
-        this.idSubject = idSubject;
+    public Subject(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
 
-    public Integer getIdSubject() {
-        return idSubject;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdSubject(Integer idSubject) {
-        this.idSubject = idSubject;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
