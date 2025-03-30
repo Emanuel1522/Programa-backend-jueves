@@ -12,15 +12,19 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_teacher")
     private Integer id;
-
     @Column(name = "specialty", length = 100, nullable = false)
     private String specialty;
 
-    //Creating relationship (1 to many)
+    //Creating relationship with user (1 to 1)
+    @OneToOne
+    @JoinColumn(name = "fk_user", referencedColumnName = "id")
+    @JsonManagedReference
+    private User user;
+
+    //Creating relationship with course (1 to many)
     @OneToMany(mappedBy = "teacher")
     @JsonManagedReference
     private List<Course> courses;
-
 
     public Teacher() {
     }

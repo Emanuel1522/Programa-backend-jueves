@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import helper.UserType;
 import jakarta.persistence.*;
 
@@ -11,21 +12,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private Integer id;
-
     @Column(name = "name", length = 100, nullable = false)
     private String name;
-
     @Column(name = "email", length = 150, unique = true, nullable = false)
     private String email;
-
     @Column(name = "password", length = 255, nullable = false)
     private String password;
-
     @Column(name = "phone", length = 20, nullable = true)
     private String phone;
-
     @Column(name = "user_type", nullable = false)
     private UserType userType;
+
+    //Creating relationship with student (1 to 1)
+    @OneToOne(mappedBy = "user")
+    @JsonManagedReference
+    private Student student;
+
+    //Creating relationship with teacher (1 to 1)
+    @OneToOne(mappedBy = "user")
+    @JsonManagedReference
+    private Teacher teacher;
 
     public User() {
     }
