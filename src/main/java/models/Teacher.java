@@ -2,7 +2,6 @@ package models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -13,6 +12,8 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_teacher")
     private Integer id;
+
+    @Column(name = "specialty", length = 100, nullable = false)
     private String specialty;
 
     //Creating relationship (1 to many)

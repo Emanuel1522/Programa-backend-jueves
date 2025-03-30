@@ -1,10 +1,19 @@
 package models;
 
+import jakarta.persistence.*;
+
 import java.sql.Timestamp;
 
+@Entity
+@Table(name = "registration")
 public class Registration {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_registration")
     private Integer id;
+
+    @Column(name = "registration_date")
     private Timestamp registrationDate;
 
     public Registration() {

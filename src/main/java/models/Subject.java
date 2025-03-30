@@ -1,7 +1,17 @@
 package models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "subject")
 public class Subject {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_subject")
     private Integer id;
+
+    @Column(name = "name", length = 100, nullable = false)
     private String name;
 
     public Subject() {

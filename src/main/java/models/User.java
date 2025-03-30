@@ -1,13 +1,30 @@
 package models;
 
 import helper.UserType;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "user")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user")
     private Integer id;
+
+    @Column(name = "name", length = 100, nullable = false)
     private String name;
+
+    @Column(name = "email", length = 150, unique = true, nullable = false)
     private String email;
+
+    @Column(name = "password", length = 255, nullable = false)
     private String password;
+
+    @Column(name = "phone", length = 20, nullable = true)
     private String phone;
+
+    @Column(name = "user_type", nullable = false)
     private UserType userType;
 
     public User() {

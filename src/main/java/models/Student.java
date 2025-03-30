@@ -1,20 +1,35 @@
 package models;
 
+import jakarta.persistence.*;
 import java.util.Date;
+
+@Entity
+@Table(name = "student")
 public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_student")
     private Integer id;
+
+    @Column(name = "grade", unique = false, nullable = false)
     private Integer grade;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "born_date", unique = false, nullable = false)
     private Date bornDate;
-    private String adress;
+
+    @Column(name = "address", length = 255, unique = false, nullable = false)
+    private String address;
 
     public Student() {
     }
 
-    public Student(Integer id, Integer grade, Date bornDate, String adress) {
+    public Student(Integer id, Integer grade, Date bornDate, String address) {
         this.id = id;
         this.grade = grade;
         this.bornDate = bornDate;
-        this.adress = adress;
+        this.address = address;
     }
 
     public Integer getId() {
@@ -41,11 +56,11 @@ public class Student {
         this.bornDate = bornDate;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String adress) {
+        this.address = adress;
     }
 }
