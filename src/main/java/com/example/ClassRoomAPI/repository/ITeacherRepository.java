@@ -1,6 +1,6 @@
-package repository;
+package com.example.ClassRoomAPI.repository;
 
-import models.Teacher;
+import com.example.ClassRoomAPI.models.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

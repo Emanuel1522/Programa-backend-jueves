@@ -1,6 +1,6 @@
-package repository;
+package com.example.ClassRoomAPI.repository;
 
-import models.Registration;
+import com.example.ClassRoomAPI.models.Registration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
