@@ -17,13 +17,13 @@ public class Registration {
 
     //Creating relationship with student (1 to 1)
     @OneToOne
-    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonManagedReference
     private Student student;
 
     //Creating relationship with course (1 to 1)
     @OneToOne
-    @JoinColumn(name = "fk_course", referencedColumnName = "id")
+    @JoinColumn(name = "fk_course", referencedColumnName = "id_course")
     @JsonManagedReference
     private Course course;
 

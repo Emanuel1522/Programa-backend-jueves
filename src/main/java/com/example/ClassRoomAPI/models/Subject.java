@@ -17,7 +17,7 @@ public class Subject {
 
     //Creating relationship with course (many to 1)
     @ManyToOne
-    @JoinColumn(name = "fk_course", referencedColumnName = "id")
+    @JoinColumn(name = "fk_course", referencedColumnName = "id_course")
     @JsonManagedReference
     private Course course;
 

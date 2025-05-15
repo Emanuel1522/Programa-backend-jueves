@@ -19,13 +19,13 @@ public class Qualification {
 
     //Creating relationship with student (many to one)
     @ManyToOne
-    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonManagedReference
     private Student student;
 
     //Creating relationship with subject (many to one)
     @ManyToOne
-    @JoinColumn(name = "fk_subject", referencedColumnName = "id")
+    @JoinColumn(name = "fk_subject", referencedColumnName = "id_subject")
     @JsonManagedReference
     private Subject subject;
 

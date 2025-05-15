@@ -20,13 +20,13 @@ public class Attendance {
 
     //Creating relationship with student (many to one)
     @ManyToOne
-    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonManagedReference
     private Student student;
 
     //Creating relationship with course (many to one)
     @ManyToOne
-    @JoinColumn(name = "fk_course", referencedColumnName = "id")
+    @JoinColumn(name = "fk_course", referencedColumnName = "id_course")
     @JsonManagedReference
     private Course course;
 

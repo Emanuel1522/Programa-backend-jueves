@@ -17,7 +17,7 @@ public class Teacher {
 
     //Creating relationship with user (1 to 1)
     @OneToOne
-    @JoinColumn(name = "fk_user", referencedColumnName = "id")
+    @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
     @JsonManagedReference
     private User user;
 
