@@ -6,9 +6,12 @@ import com.example.ClassRoomAPI.models.Teacher;
 import com.example.ClassRoomAPI.models.User;
 import com.example.ClassRoomAPI.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserService {
 
     @Autowired
@@ -33,16 +36,16 @@ public class UserService {
     }
 
     //Method for SearchById
-    public User searchUserById(Integer id) throws Exception {
+    public Optional<User> searchUserById(Integer id) throws Exception {
         try {
             Optional<User> userSearched = this.repository.findById(id);
             if (userSearched.isPresent()) {
-                return userSearched.get();
+                return userSearched;
             } else {
                 throw new Exception(APIMessages.ERROR_USER_NOT_FOUND.getMessage());
             }
         } catch (Exception error) {
-            throw new Exception();
+            throw new Exception("Error al buscar el usuario: " + error.getMessage());
         }
     }
 

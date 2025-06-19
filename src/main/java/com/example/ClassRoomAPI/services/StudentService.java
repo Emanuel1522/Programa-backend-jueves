@@ -4,9 +4,12 @@ import com.example.ClassRoomAPI.helper.APIMessages;
 import com.example.ClassRoomAPI.models.Student;
 import com.example.ClassRoomAPI.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class StudentService {
 
     @Autowired
@@ -31,16 +34,16 @@ public class StudentService {
     }
 
     //Method for SearchById
-    public Student searchStudentById(Integer id) throws Exception {
+    public Optional<Student> searchStudentById(Integer id) throws Exception {
         try {
             Optional<Student> studentSearched = this.repository.findById(id);
             if (studentSearched.isPresent()) {
-                return studentSearched.get();
+                return studentSearched;
             } else {
                 throw new Exception(APIMessages.ERROR_STUDENT_NOT_FOUND.getMessage());
             }
         } catch (Exception error) {
-            throw new Exception();
+            throw new Exception("Error al buscar el estudiante " + error.getMessage());
         }
     }
 

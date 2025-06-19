@@ -5,10 +5,9 @@ import com.example.ClassRoomAPI.services.QualificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/qualification")
@@ -17,7 +16,7 @@ public class QualificationController {
     QualificationService service;
 
     //Save
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody Qualification datosQueEnviaElCliente){
         try{
 
@@ -31,6 +30,19 @@ public class QualificationController {
                     .status(HttpStatus.BAD_REQUEST)
                     .body(error.getMessage());
 
+        }
+    }
+
+    // Search all
+    @GetMapping("/getAll")
+    public ResponseEntity<?> getAll(){
+        try {
+            List<Qualification> qualifications = service.qualificationList();
+            return ResponseEntity.ok(qualifications);
+        } catch(Exception error){
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(error.getMessage());
         }
     }
 }

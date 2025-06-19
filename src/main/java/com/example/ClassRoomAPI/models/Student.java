@@ -1,45 +1,47 @@
 package com.example.ClassRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_student")
     private Integer id;
-    @Column(name = "grade", unique = false, nullable = false)
+
     private Integer grade;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "born_date", unique = false, nullable = false)
     private Date bornDate;
-    @Column(name = "address", length = 255, unique = false, nullable = false)
+
     private String address;
 
     //Creating relationship with user (1 to 1)
     @OneToOne
     @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
-    @JsonManagedReference
+    @JsonBackReference(value = "studentUser")
     private User user;
 
     //Creating relationship with registration (1 to 1)
     @OneToOne(mappedBy = "student")
-    @JsonManagedReference
+    @JsonManagedReference(value = "registrationStudent")
     private Registration registration;
 
     //Creating relationship with qualification (one to many)
     @OneToMany(mappedBy = "student")
-    @JsonManagedReference
+    @JsonManagedReference(value = "qualificationStudent")
     private List<Qualification> qualifications;
 
     //Creating relationship with attendance (1 to many)
     @OneToMany(mappedBy = "student")
-    @JsonManagedReference
+    @JsonManagedReference(value = "attendanceStudent")
     private List<Attendance> attendances;
 
     public Student() {

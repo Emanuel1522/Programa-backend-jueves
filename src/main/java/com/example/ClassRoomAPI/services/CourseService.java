@@ -6,9 +6,12 @@ import com.example.ClassRoomAPI.models.Course;
 import com.example.ClassRoomAPI.models.Qualification;
 import com.example.ClassRoomAPI.repository.ICourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CourseService {
 
     @Autowired

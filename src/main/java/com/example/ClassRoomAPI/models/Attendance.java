@@ -1,34 +1,36 @@
 package com.example.ClassRoomAPI.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.example.ClassRoomAPI.helper.State;
 import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "attendance")
+@Table(name = "attendances")
 public class Attendance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_attendance")
     private Integer id;
-    @Column(name = "date", nullable = false)
+
     private Date date;
-    @Column(name = "state", nullable = false)
+
     private State state;
+
 
     //Creating relationship with student (many to one)
     @ManyToOne
     @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
-    @JsonManagedReference
+    @JsonBackReference(value = "attendanceStudent")
     private Student student;
 
     //Creating relationship with course (many to one)
     @ManyToOne
     @JoinColumn(name = "fk_course", referencedColumnName = "id_course")
-    @JsonManagedReference
+    @JsonBackReference(value = "attendanceCourse")
     private Course course;
+
 
     public Attendance() {
     }
